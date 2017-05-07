@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Tests", "OnlineS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{D8C0797D-3048-4BDB-8D53-FE5ACD94715E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScript", "DbScript", "{F78E269A-FE04-471B-86FA-C15F4606881D}"
+	ProjectSection(SolutionItems) = preProject
+		Account.sql = Account.sql
+		Account_Login.sql = Account_Login.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

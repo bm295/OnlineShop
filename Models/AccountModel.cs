@@ -16,10 +16,10 @@ namespace Models
         public bool Login(string userName, string password)
         {
             object[] sqlParams = {
-                new SqlParameter("@UserName", userName),
+                new SqlParameter("@userName", userName),
                 new SqlParameter("@password", password) 
             };
-            return _Context.Database.SqlQuery<bool>("Account_Login @userName, @password", sqlParams).SingleOrDefault();
+            return _Context.Database.SqlQuery<bool>("exec [Account_Login] @userName, @password", sqlParams).SingleOrDefault();
         }
     }
 }

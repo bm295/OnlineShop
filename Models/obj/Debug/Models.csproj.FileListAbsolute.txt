@@ -5,6 +5,5 @@ D:\github\OnlineShop\Models\bin\Debug\EntityFramework.dll
 D:\github\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.dll
 D:\github\OnlineShop\Models\bin\Debug\EntityFramework.xml
 D:\github\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.xml
-D:\github\OnlineShop\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
 D:\github\OnlineShop\Models\obj\Debug\Models.dll
 D:\github\OnlineShop\Models\obj\Debug\Models.pdb

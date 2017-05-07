@@ -24,3 +24,5 @@ D:\github\OnlineShop\OnlineShop\bin\Models.dll
 D:\github\OnlineShop\OnlineShop\bin\EntityFramework.dll
 D:\github\OnlineShop\OnlineShop\bin\Models.pdb
 D:\github\OnlineShop\OnlineShop\bin\EntityFramework.xml
+D:\github\OnlineShop\OnlineShop\bin\EntityFramework.SqlServer.dll
+D:\github\OnlineShop\OnlineShop\bin\EntityFramework.SqlServer.xml
