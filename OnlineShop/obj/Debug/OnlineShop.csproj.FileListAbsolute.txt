@@ -19,3 +19,4 @@ D:\github\OnlineShop\OnlineShop\bin\System.Web.WebPages.Deployment.xml
 D:\github\OnlineShop\OnlineShop\bin\System.Web.WebPages.Razor.xml
 D:\github\OnlineShop\OnlineShop\obj\Debug\OnlineShop.dll
 D:\github\OnlineShop\OnlineShop\obj\Debug\OnlineShop.pdb
+D:\github\OnlineShop\OnlineShop\obj\Debug\OnlineShop.csprojResolveAssemblyReference.cache
