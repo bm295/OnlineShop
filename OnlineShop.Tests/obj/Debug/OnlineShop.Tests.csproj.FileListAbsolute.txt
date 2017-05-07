@@ -22,3 +22,7 @@ D:\github\OnlineShop\OnlineShop.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 D:\github\OnlineShop\OnlineShop.Tests\obj\Debug\OnlineShop.Tests.csprojResolveAssemblyReference.cache
 D:\github\OnlineShop\OnlineShop.Tests\obj\Debug\OnlineShop.Tests.dll
 D:\github\OnlineShop\OnlineShop.Tests\obj\Debug\OnlineShop.Tests.pdb
+D:\github\OnlineShop\OnlineShop.Tests\bin\Debug\Models.dll
+D:\github\OnlineShop\OnlineShop.Tests\bin\Debug\EntityFramework.dll
+D:\github\OnlineShop\OnlineShop.Tests\bin\Debug\Models.pdb
+D:\github\OnlineShop\OnlineShop.Tests\bin\Debug\EntityFramework.xml

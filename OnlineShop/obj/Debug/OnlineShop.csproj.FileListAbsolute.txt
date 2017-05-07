@@ -20,3 +20,7 @@ D:\github\OnlineShop\OnlineShop\bin\System.Web.WebPages.Razor.xml
 D:\github\OnlineShop\OnlineShop\obj\Debug\OnlineShop.dll
 D:\github\OnlineShop\OnlineShop\obj\Debug\OnlineShop.pdb
 D:\github\OnlineShop\OnlineShop\obj\Debug\OnlineShop.csprojResolveAssemblyReference.cache
+D:\github\OnlineShop\OnlineShop\bin\Models.dll
+D:\github\OnlineShop\OnlineShop\bin\EntityFramework.dll
+D:\github\OnlineShop\OnlineShop\bin\Models.pdb
+D:\github\OnlineShop\OnlineShop\bin\EntityFramework.xml

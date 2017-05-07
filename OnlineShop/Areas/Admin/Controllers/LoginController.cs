@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Models;
+using OnlineShop.Areas.Admin.Code;
 using OnlineShop.Areas.Admin.Models;
 
 namespace OnlineShop.Areas.Admin.Controllers
@@ -16,16 +17,16 @@ namespace OnlineShop.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Index(LoginModel model)
         {
             var result = new AccountModel().Login(model.UserName, model.Password);
             if (result && ModelState.IsValid)
             {
+                SessionHelper.SetSession(new UserSession{UserName = model.UserName});
+                return RedirectToAction("Index", "Home");
             }
-            else
-            {
-                ModelState.AddModelError("", "Wrong UserName or Password");
-            }
+            ModelState.AddModelError("", "Wrong UserName or Password");
             return View(model);
         }
     }
