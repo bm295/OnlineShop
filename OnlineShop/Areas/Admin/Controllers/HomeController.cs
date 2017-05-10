@@ -2,6 +2,7 @@
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         //

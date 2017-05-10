@@ -7,3 +7,4 @@ D:\github\OnlineShop\Models\bin\Debug\EntityFramework.xml
 D:\github\OnlineShop\Models\bin\Debug\EntityFramework.SqlServer.xml
 D:\github\OnlineShop\Models\obj\Debug\Models.dll
 D:\github\OnlineShop\Models\obj\Debug\Models.pdb
+D:\github\OnlineShop\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

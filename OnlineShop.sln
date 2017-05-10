@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScript", "DbScript", "{F7
 	ProjectSection(SolutionItems) = preProject
 		Account.sql = Account.sql
 		Account_Login.sql = Account_Login.sql
+		Category_ListAll.sql = Category_ListAll.sql
 	EndProjectSection
 EndProject
 Global
