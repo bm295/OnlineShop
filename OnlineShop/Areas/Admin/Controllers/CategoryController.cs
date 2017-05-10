@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Models;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -9,7 +10,7 @@ namespace OnlineShop.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(new CategoryModel().GetCategories());
         }
 
         //

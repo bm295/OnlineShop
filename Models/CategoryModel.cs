@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Models.Framework;
 
 namespace Models
@@ -14,7 +15,7 @@ namespace Models
 
         public List<Category> GetCategories()
         {
-
+            return _Context.Database.SqlQuery<Category>("Category_ListAll").ToList();
         }
     }
 }
