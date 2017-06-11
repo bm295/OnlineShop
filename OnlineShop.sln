@@ -14,6 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScript", "DbScript", "{F7
 		Account.sql = Account.sql
 		Account_Login.sql = Account_Login.sql
 		Category.sql = Category.sql
+		Category_Add.sql = Category_Add.sql
 		Category_ListAll.sql = Category_ListAll.sql
 		Product.sql = Product.sql
 	EndProjectSection
