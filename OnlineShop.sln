@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop", "OnlineShop\OnlineShop.csproj", "{2CE4FAFF-3C42-449D-BE9C-485E07F7B67A}"
 EndProject
@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScript", "DbScript", "{F7
 		Category_ListAll.sql = Category_ListAll.sql
 		Product.sql = Product.sql
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppAngular", "WebAppAngular\WebAppAngular.csproj", "{6EDCE4E1-B965-465B-8653-2A82FC062CF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,8 +39,15 @@ Global
 		{D8C0797D-3048-4BDB-8D53-FE5ACD94715E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8C0797D-3048-4BDB-8D53-FE5ACD94715E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8C0797D-3048-4BDB-8D53-FE5ACD94715E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EDCE4E1-B965-465B-8653-2A82FC062CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EDCE4E1-B965-465B-8653-2A82FC062CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EDCE4E1-B965-465B-8653-2A82FC062CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EDCE4E1-B965-465B-8653-2A82FC062CF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4312462-82EA-45C4-AB02-37C58E29D728}
 	EndGlobalSection
 EndGlobal
