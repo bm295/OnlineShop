@@ -1,16 +1,11 @@
-﻿using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
-namespace OnlineShop.Controllers
+namespace OnlineShop.Controllers;
+
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    public IActionResult Index()
     {
-        //
-        // GET: /Home/
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        return View();
     }
 }
