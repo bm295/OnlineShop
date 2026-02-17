@@ -1,25 +1,18 @@
-﻿using System.Data.SqlClient;
-using System.Linq;
 using Models.Framework;
 
-namespace Models
+namespace Models;
+
+public class AccountModel
 {
-    public class AccountModel
+    private readonly OnlineShopDbContext _context;
+
+    public AccountModel()
     {
-        private readonly OnlineShopDbContext _Context;
+        _context = new OnlineShopDbContext();
+    }
 
-        public AccountModel()
-        {
-            _Context = new OnlineShopDbContext();
-        }
-
-        public bool Login(string userName, string password)
-        {
-            object[] sqlParams = {
-                new SqlParameter("@userName", userName),
-                new SqlParameter("@password", password) 
-            };
-            return _Context.Database.SqlQuery<bool>("exec [Account_Login] @userName, @password", sqlParams).SingleOrDefault();
-        }
+    public bool Login(string userName, string password)
+    {
+        return _context.Accounts.Any(account => account.UserName == userName && account.Password == password);
     }
 }

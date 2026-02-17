@@ -1,35 +1,34 @@
-﻿using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
 using Models.Framework;
 
-namespace Models
+namespace Models;
+
+public class CategoryModel
 {
-    public class CategoryModel
+    private readonly OnlineShopDbContext _context;
+
+    public CategoryModel()
     {
-        private readonly OnlineShopDbContext _Context;
+        _context = new OnlineShopDbContext();
+    }
 
-        public CategoryModel()
-        {
-            _Context = new OnlineShopDbContext();
-        }
+    public List<Category> GetCategories()
+    {
+        return _context.Categories.OrderBy(category => category.Order).ToList();
+    }
 
-        public List<Category> GetCategories()
+    public int Add(string name, string? alias, int? parentId, int? order, bool? status)
+    {
+        var category = new Category
         {
-            return _Context.Database.SqlQuery<Category>("Category_ListAll").ToList();
-        }
+            Name = name,
+            Alias = alias,
+            ParentId = parentId,
+            Order = order,
+            Status = status,
+            CreatedDate = DateTime.UtcNow
+        };
 
-        public int Add(string name, string alias, int? parentId, int? order, bool? status)
-        {
-            object[] parameters =
-            {
-                new SqlParameter("@name", name),
-                new SqlParameter("@alias", alias),
-                new SqlParameter("@parentId", parentId),
-                new SqlParameter("@order", order),
-                new SqlParameter("@status", status)
-            };
-            return _Context.Database.ExecuteSqlCommand("exec Category_Add @name, @alias, @parentId, @order, @status", parameters);
-        }
+        _context.Categories.Add(category);
+        return _context.SaveChanges();
     }
 }
