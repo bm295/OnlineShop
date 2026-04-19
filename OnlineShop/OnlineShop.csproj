@@ -5,13 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Global.asax.cs" />
-    <Compile Remove="App_Start\**\*.cs" />
-    <Compile Remove="Areas\**\*.cs" />
-    <Compile Remove="Properties\AssemblyInfo.cs" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
   </ItemGroup>
 </Project>

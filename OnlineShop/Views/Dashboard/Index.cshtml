@@ -1,0 +1,30 @@
+@model IEnumerable<Order>
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<section class="stats-grid">
+    <article><h3>Total Products</h3><p>@ViewBag.TotalProducts</p></article>
+    <article><h3>Total Categories</h3><p>@ViewBag.TotalCategories</p></article>
+    <article><h3>Pending Orders</h3><p>@ViewBag.PendingOrders</p></article>
+    <article><h3>Inventory Value</h3><p>$@ViewBag.InventoryValue</p></article>
+</section>
+
+<h2>Latest Orders</h2>
+<table>
+    <thead>
+    <tr><th>ID</th><th>Customer</th><th>Status</th><th>Total</th><th>Created</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var order in Model)
+    {
+        <tr>
+            <td>@order.Id</td>
+            <td>@order.CustomerName</td>
+            <td>@order.Status</td>
+            <td>$@order.TotalAmount</td>
+            <td>@order.CreatedAtUtc.ToString("u")</td>
+        </tr>
+    }
+    </tbody>
+</table>
