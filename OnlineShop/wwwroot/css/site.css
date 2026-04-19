@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+}
+
+header {
+    background: #1f2937;
+    color: #fff;
+    padding: 1rem 2rem;
+}
+
+nav a {
+    color: #fff;
+    margin-right: 1rem;
+    text-decoration: none;
+}
+
+main {
+    padding: 1.5rem 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stats-grid article,
+table,
+form {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    padding: 0.6rem;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn,
+button {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    padding: 0.5rem 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    max-width: 420px;
+    display: grid;
+    gap: 0.5rem;
+}
+
+input,
+select {
+    padding: 0.45rem;
+}
