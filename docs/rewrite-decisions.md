@@ -1,38 +1,49 @@
 # Rewrite Decisions
 
+## Task status
+
+- [x] Write the chosen TypeScript stack.
+- [x] Write the reasons for choosing Next.js.
+- [x] Write the reasons for choosing Prisma.
+- [x] Write the reasons for choosing PostgreSQL.
+- [x] Write what will not be migrated from the old stack.
+
 ## Chosen TypeScript stack
 
-- Next.js with TypeScript for the full-stack web application.
-- Prisma as the data access layer and migration tool.
-- PostgreSQL as the relational database.
-- React components and Next.js routing for the user interface.
+- **Language:** TypeScript
+- **Web framework:** Next.js
+- **UI layer:** React components with Next.js routing and rendering
+- **ORM:** Prisma
+- **Database:** PostgreSQL
+- **Validation:** TypeScript-first request and form validation at application boundaries
+- **Styling:** Component-oriented CSS approach compatible with Next.js
 
 ## Why Next.js
 
-- It provides a single TypeScript framework for the UI and server-side application code.
-- File-based routing gives the rewrite a clear structure that maps well from the existing MVC controller and view organization.
-- Server-side rendering and server components can support dashboard and inventory pages that need database-backed data at request time.
-- API routes or server actions provide a straightforward replacement for current form-post controller actions.
-- The ecosystem is mature, widely documented, and well supported for deployment.
+- Provides a production-ready TypeScript and React foundation for replacing the current ASP.NET MVC UI.
+- Supports file-based routing, layouts, server rendering, and client interactivity in one framework.
+- Enables colocating page, route, and data-loading concerns while keeping the application approachable for a small shop inventory system.
+- Has a broad ecosystem for authentication, forms, testing, deployment, and observability if the app grows beyond the current feature set.
 
 ## Why Prisma
 
-- Prisma gives strongly typed database access from TypeScript, reducing mismatch between application models and database schema.
-- Its schema file and generated client make the product, category, and order models explicit and easy to review.
-- Prisma migrations provide a repeatable way to evolve the database during and after the rewrite.
-- Relations such as `Product` to `Category` can be modeled directly and queried ergonomically.
+- Provides a strongly typed database client generated from the schema, which fits the TypeScript rewrite goal.
+- Makes the current model relationships straightforward to represent: categories have products, products belong to categories, and orders track status and totals.
+- Offers migrations and schema management that are easier to review during a rewrite than ad hoc database changes.
+- Keeps data access explicit and testable without carrying over Entity Framework-specific patterns.
 
 ## Why PostgreSQL
 
-- PostgreSQL is a production-ready relational database with strong support for constraints, transactions, indexes, and relational queries.
-- It fits the existing relational shape of categories, products, and orders.
-- It works well with Prisma and common Next.js deployment platforms.
-- It provides a better long-term production target than the current local SQLite setup.
+- Provides a durable production database option beyond the current local SQLite setup.
+- Supports relational constraints, transactions, indexes, enums, and reporting queries suitable for inventory, categories, and orders.
+- Works well with Prisma and common Next.js deployment targets.
+- Leaves room for future operational needs such as backups, analytics, concurrency, and larger datasets.
 
 ## What will not be migrated from the old stack
 
-- ASP.NET Core MVC controllers, Razor views, and C# model classes will not be carried forward directly.
-- Entity Framework Core `DbContext`, EF-specific configuration, and SQLite setup will not be migrated.
-- The current `Program.cs` hosting and middleware setup will be replaced by Next.js application configuration.
+- ASP.NET Core MVC controllers, Razor views, and Razor layout files will not be migrated directly; they will be replaced by Next.js routes and React UI.
+- Entity Framework Core `DbContext` and SQLite provider configuration will not be migrated; Prisma and PostgreSQL will replace them.
+- The local SQLite database file approach will not be carried forward as the primary runtime database.
+- Server-side `ViewBag` patterns will not be migrated; typed props, server components, or API responses will replace them.
 - The intentionally inefficient dashboard query pattern will not be preserved; the rewrite should use efficient aggregate and relation queries.
-- Server-rendered Razor layout and view conventions will be replaced by React and Next.js layout conventions.
+- C# model classes and enums will not be migrated as source files; they will be translated into TypeScript types and Prisma schema models.
