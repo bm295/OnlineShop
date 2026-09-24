@@ -55,70 +55,70 @@ This checklist breaks the rewrite into small, ordered tasks for replacing the cu
 
 ## Phase 3: Initialize TypeScript workspace
 
-- [ ] Create `package.json` at the repository root.
-- [ ] In root `package.json`, set `private` to `true`.
-- [ ] In root `package.json`, add a `workspaces` array containing `apps/*` and `packages/*`.
-- [ ] In root `package.json`, add script `dev` that runs the storefront dev server.
-- [ ] In root `package.json`, add script `build` that builds all workspaces.
-- [ ] In root `package.json`, add script `lint` that lints all workspaces.
-- [ ] In root `package.json`, add script `test` that runs unit tests.
-- [ ] In root `package.json`, add script `test:e2e` that runs Playwright tests.
-- [ ] Create `tsconfig.base.json` at the repository root.
-- [ ] In `tsconfig.base.json`, enable `strict`.
-- [ ] In `tsconfig.base.json`, enable `noUncheckedIndexedAccess`.
-- [ ] In `tsconfig.base.json`, enable `exactOptionalPropertyTypes`.
-- [ ] In `tsconfig.base.json`, configure path alias `@onlineshop/domain/*` for `packages/domain/src/*`.
-- [ ] Create `eslint.config.mjs` at the repository root.
-- [ ] Configure ESLint for TypeScript in `eslint.config.mjs`.
-- [ ] Configure ESLint for React in `eslint.config.mjs`.
-- [ ] Configure ESLint for Next.js in `eslint.config.mjs`.
-- [ ] Create `prettier.config.mjs` at the repository root.
-- [ ] Configure Prettier with consistent semicolon and quote rules.
+- [x] Create `package.json` at the repository root.
+- [x] In root `package.json`, set `private` to `true`.
+- [x] In root `package.json`, add a `workspaces` array containing `apps/*` and `packages/*`.
+- [x] In root `package.json`, add script `dev` that runs the storefront dev server.
+- [x] In root `package.json`, add script `build` that builds all workspaces.
+- [x] In root `package.json`, add script `lint` that lints all workspaces.
+- [x] In root `package.json`, add script `test` that runs unit tests.
+- [x] In root `package.json`, add script `test:e2e` that runs Playwright tests.
+- [x] Create `tsconfig.base.json` at the repository root.
+- [x] In `tsconfig.base.json`, enable `strict`.
+- [x] In `tsconfig.base.json`, enable `noUncheckedIndexedAccess`.
+- [x] In `tsconfig.base.json`, enable `exactOptionalPropertyTypes`.
+- [x] In `tsconfig.base.json`, configure path alias `@onlineshop/domain/*` for `packages/domain/src/*`.
+- [x] Create `eslint.config.mjs` at the repository root.
+- [x] Configure ESLint for TypeScript in `eslint.config.mjs`.
+- [x] Configure ESLint for React in `eslint.config.mjs`.
+- [x] Configure ESLint for Next.js in `eslint.config.mjs`.
+- [x] Create `prettier.config.mjs` at the repository root.
+- [x] Configure Prettier with consistent semicolon and quote rules.
 
 ## Phase 4: Create the Next.js application
 
-- [ ] Initialize `apps/storefront/package.json`.
-- [ ] Add dependency `next` to `apps/storefront/package.json`.
-- [ ] Add dependency `react` to `apps/storefront/package.json`.
-- [ ] Add dependency `react-dom` to `apps/storefront/package.json`.
-- [ ] Add development dependency `typescript` to the workspace.
-- [ ] Add development dependency `@types/node` to the workspace.
-- [ ] Add development dependency `@types/react` to the workspace.
-- [ ] Add development dependency `@types/react-dom` to the workspace.
-- [ ] Create `apps/storefront/tsconfig.json`.
-- [ ] Extend `../../tsconfig.base.json` from `apps/storefront/tsconfig.json`.
-- [ ] Create `apps/storefront/next.config.ts`.
-- [ ] Create `apps/storefront/src/`.
-- [ ] Create `apps/storefront/src/app/`.
-- [ ] Create `apps/storefront/src/app/layout.tsx`.
-- [ ] Create `apps/storefront/src/app/page.tsx`.
-- [ ] Create `apps/storefront/src/app/globals.css`.
-- [ ] In `apps/storefront/src/app/layout.tsx`, define the root HTML layout.
-- [ ] In `apps/storefront/src/app/page.tsx`, render a temporary dashboard page.
-- [ ] In `apps/storefront/src/app/globals.css`, add base typography and layout styles.
+- [x] Initialize `apps/storefront/package.json`.
+- [x] Add dependency `next` to `apps/storefront/package.json`.
+- [x] Add dependency `react` to `apps/storefront/package.json`.
+- [x] Add dependency `react-dom` to `apps/storefront/package.json`.
+- [x] Add development dependency `typescript` to the workspace.
+- [x] Add development dependency `@types/node` to the workspace.
+- [x] Add development dependency `@types/react` to the workspace.
+- [x] Add development dependency `@types/react-dom` to the workspace.
+- [x] Create `apps/storefront/tsconfig.json`.
+- [x] Extend `../../tsconfig.base.json` from `apps/storefront/tsconfig.json`.
+- [x] Create `apps/storefront/next.config.ts`.
+- [x] Create `apps/storefront/src/`.
+- [x] Create `apps/storefront/src/app/`.
+- [x] Create `apps/storefront/src/app/layout.tsx`.
+- [x] Create `apps/storefront/src/app/page.tsx`.
+- [x] Create `apps/storefront/src/app/globals.css`.
+- [x] In `apps/storefront/src/app/layout.tsx`, define the root HTML layout.
+- [x] In `apps/storefront/src/app/page.tsx`, render a temporary dashboard page.
+- [x] In `apps/storefront/src/app/globals.css`, add base typography and layout styles.
 
 ## Phase 5: Create shared domain package
 
-- [ ] Create `packages/domain/package.json`.
-- [ ] Set package name to `@onlineshop/domain` in `packages/domain/package.json`.
-- [ ] Create `packages/domain/tsconfig.json`.
-- [ ] Create `packages/domain/src/`.
-- [ ] Create `packages/domain/src/product.ts`.
-- [ ] In `packages/domain/src/product.ts`, define `Product` type.
-- [ ] In `packages/domain/src/product.ts`, define `CreateProductInput` type.
-- [ ] In `packages/domain/src/product.ts`, define `UpdateProductInput` type.
-- [ ] Create `packages/domain/src/category.ts`.
-- [ ] In `packages/domain/src/category.ts`, define `Category` type.
-- [ ] In `packages/domain/src/category.ts`, define `CreateCategoryInput` type.
-- [ ] In `packages/domain/src/category.ts`, define `UpdateCategoryInput` type.
-- [ ] Create `packages/domain/src/order.ts`.
-- [ ] In `packages/domain/src/order.ts`, define `OrderStatus` enum or union type.
-- [ ] In `packages/domain/src/order.ts`, define `Order` type.
-- [ ] In `packages/domain/src/order.ts`, define `CreateOrderInput` type.
-- [ ] Create `packages/domain/src/index.ts`.
-- [ ] Export product types from `packages/domain/src/index.ts`.
-- [ ] Export category types from `packages/domain/src/index.ts`.
-- [ ] Export order types from `packages/domain/src/index.ts`.
+- [x] Create `packages/domain/package.json`.
+- [x] Set package name to `@onlineshop/domain` in `packages/domain/package.json`.
+- [x] Create `packages/domain/tsconfig.json`.
+- [x] Create `packages/domain/src/`.
+- [x] Create `packages/domain/src/product.ts`.
+- [x] In `packages/domain/src/product.ts`, define `Product` type.
+- [x] In `packages/domain/src/product.ts`, define `CreateProductInput` type.
+- [x] In `packages/domain/src/product.ts`, define `UpdateProductInput` type.
+- [x] Create `packages/domain/src/category.ts`.
+- [x] In `packages/domain/src/category.ts`, define `Category` type.
+- [x] In `packages/domain/src/category.ts`, define `CreateCategoryInput` type.
+- [x] In `packages/domain/src/category.ts`, define `UpdateCategoryInput` type.
+- [x] Create `packages/domain/src/order.ts`.
+- [x] In `packages/domain/src/order.ts`, define `OrderStatus` enum or union type.
+- [x] In `packages/domain/src/order.ts`, define `Order` type.
+- [x] In `packages/domain/src/order.ts`, define `CreateOrderInput` type.
+- [x] Create `packages/domain/src/index.ts`.
+- [x] Export product types from `packages/domain/src/index.ts`.
+- [x] Export category types from `packages/domain/src/index.ts`.
+- [x] Export order types from `packages/domain/src/index.ts`.
 
 ## Phase 6: Add validation schemas
 
