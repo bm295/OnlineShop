@@ -1,4 +1,12 @@
-.vs
-bin
-obj
-packages
+.vs/
+bin/
+obj/
+
+node_modules/
+.next/
+dist/
+.env
+.env.local
+coverage/
+playwright-report/
+test-results/

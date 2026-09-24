@@ -11,47 +11,47 @@ This checklist breaks the rewrite into small, ordered tasks for replacing the cu
 
 ## Phase 1: Document the current application
 
-- [ ] Create `docs/current-app-inventory.md`.
-- [ ] In `docs/current-app-inventory.md`, list every current C# model file.
-- [ ] In `docs/current-app-inventory.md`, document `OnlineShop/Models/Product.cs` fields: `Id`, `Name`, `Sku`, `Price`, `StockQuantity`, `CategoryId`, and `Category`.
-- [ ] In `docs/current-app-inventory.md`, document `OnlineShop/Models/Category.cs` fields.
-- [ ] In `docs/current-app-inventory.md`, document `OnlineShop/Models/Order.cs` fields and enum values.
-- [ ] In `docs/current-app-inventory.md`, list every current controller file.
-- [ ] In `docs/current-app-inventory.md`, document every route currently provided by `ProductsController`.
-- [ ] In `docs/current-app-inventory.md`, document every route currently provided by `CategoriesController`.
-- [ ] In `docs/current-app-inventory.md`, document every route currently provided by `OrdersController`.
-- [ ] In `docs/current-app-inventory.md`, document every route currently provided by `DashboardController`.
-- [ ] In `docs/current-app-inventory.md`, list every Razor view file.
-- [ ] In `docs/current-app-inventory.md`, describe the data currently seeded in `Program.cs`.
-- [ ] Create `docs/rewrite-decisions.md`.
-- [ ] In `docs/rewrite-decisions.md`, write the chosen TypeScript stack.
-- [ ] In `docs/rewrite-decisions.md`, write the reasons for choosing Next.js.
-- [ ] In `docs/rewrite-decisions.md`, write the reasons for choosing Prisma.
-- [ ] In `docs/rewrite-decisions.md`, write the reasons for choosing PostgreSQL.
-- [ ] In `docs/rewrite-decisions.md`, write what will not be migrated from the old stack.
+- [x] Create `docs/current-app-inventory.md`.
+- [x] In `docs/current-app-inventory.md`, list every current C# model file.
+- [x] In `docs/current-app-inventory.md`, document `OnlineShop/Models/Product.cs` fields: `Id`, `Name`, `Sku`, `Price`, `StockQuantity`, `CategoryId`, and `Category`.
+- [x] In `docs/current-app-inventory.md`, document `OnlineShop/Models/Category.cs` fields.
+- [x] In `docs/current-app-inventory.md`, document `OnlineShop/Models/Order.cs` fields and enum values.
+- [x] In `docs/current-app-inventory.md`, list every current controller file.
+- [x] In `docs/current-app-inventory.md`, document every route currently provided by `ProductsController`.
+- [x] In `docs/current-app-inventory.md`, document every route currently provided by `CategoriesController`.
+- [x] In `docs/current-app-inventory.md`, document every route currently provided by `OrdersController`.
+- [x] In `docs/current-app-inventory.md`, document every route currently provided by `DashboardController`.
+- [x] In `docs/current-app-inventory.md`, list every Razor view file.
+- [x] In `docs/current-app-inventory.md`, describe the data currently seeded in `Program.cs`.
+- [x] Create `docs/rewrite-decisions.md`.
+- [x] In `docs/rewrite-decisions.md`, write the chosen TypeScript stack.
+- [x] In `docs/rewrite-decisions.md`, write the reasons for choosing Next.js.
+- [x] In `docs/rewrite-decisions.md`, write the reasons for choosing Prisma.
+- [x] In `docs/rewrite-decisions.md`, write the reasons for choosing PostgreSQL.
+- [x] In `docs/rewrite-decisions.md`, write what will not be migrated from the old stack.
 
 ## Phase 2: Prepare repository structure
 
-- [ ] Create `legacy-dotnet/`.
-- [ ] Move `OnlineShop.sln` to `legacy-dotnet/OnlineShop.sln`.
-- [ ] Move `Directory.Build.props` to `legacy-dotnet/Directory.Build.props`.
-- [ ] Move `OnlineShop/` to `legacy-dotnet/OnlineShop/`.
-- [ ] Create `apps/`.
-- [ ] Create `apps/storefront/`.
-- [ ] Create `packages/`.
-- [ ] Create `packages/domain/`.
-- [ ] Create `packages/config/`.
-- [ ] Create `docs/` if it does not already exist.
-- [ ] Create `.editorconfig` at the repository root.
-- [ ] Create `.gitignore` at the repository root.
-- [ ] Add `node_modules/` to `.gitignore`.
-- [ ] Add `.next/` to `.gitignore`.
-- [ ] Add `dist/` to `.gitignore`.
-- [ ] Add `.env` to `.gitignore`.
-- [ ] Add `.env.local` to `.gitignore`.
-- [ ] Add `coverage/` to `.gitignore`.
-- [ ] Add `playwright-report/` to `.gitignore`.
-- [ ] Add `test-results/` to `.gitignore`.
+- [x] Create `legacy-dotnet/`.
+- [x] Move `OnlineShop.sln` to `legacy-dotnet/OnlineShop.sln`.
+- [x] Move `Directory.Build.props` to `legacy-dotnet/Directory.Build.props`.
+- [x] Move `OnlineShop/` to `legacy-dotnet/OnlineShop/`.
+- [x] Create `apps/`.
+- [x] Create `apps/storefront/`.
+- [x] Create `packages/`.
+- [x] Create `packages/domain/`.
+- [x] Create `packages/config/`.
+- [x] Create `docs/` if it does not already exist.
+- [x] Create `.editorconfig` at the repository root.
+- [x] Create `.gitignore` at the repository root.
+- [x] Add `node_modules/` to `.gitignore`.
+- [x] Add `.next/` to `.gitignore`.
+- [x] Add `dist/` to `.gitignore`.
+- [x] Add `.env` to `.gitignore`.
+- [x] Add `.env.local` to `.gitignore`.
+- [x] Add `coverage/` to `.gitignore`.
+- [x] Add `playwright-report/` to `.gitignore`.
+- [x] Add `test-results/` to `.gitignore`.
 
 ## Phase 3: Initialize TypeScript workspace
 

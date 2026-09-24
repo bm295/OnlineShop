@@ -1,49 +1,36 @@
-# Rewrite Decisions
+# TypeScript Rewrite Decisions
 
-## Task status
+## Chosen Stack
 
-- [x] Write the chosen TypeScript stack.
-- [x] Write the reasons for choosing Next.js.
-- [x] Write the reasons for choosing Prisma.
-- [x] Write the reasons for choosing PostgreSQL.
-- [x] Write what will not be migrated from the old stack.
-
-## Chosen TypeScript stack
-
-- **Language:** TypeScript
-- **Web framework:** Next.js
-- **UI layer:** React components with Next.js routing and rendering
-- **ORM:** Prisma
-- **Database:** PostgreSQL
-- **Validation:** TypeScript-first request and form validation at application boundaries
-- **Styling:** Component-oriented CSS approach compatible with Next.js
+- **Application framework:** Next.js with TypeScript, initially as one deployable application.
+- **Frontend:** React through Next.js, using the App Router and server components by default. Client components will be limited to interactions that require browser state or APIs.
+- **Backend:** Next.js route handlers for the initial HTTP API. A separate NestJS service may be considered later only if operational or domain complexity justifies it.
+- **Database:** PostgreSQL in production.
+- **ORM:** Prisma for schema definition, migrations, and typed database access.
+- **Styling:** CSS modules for component-scoped styles, with Tailwind CSS remaining an option if a utility-first design system is adopted during implementation.
+- **Testing:** Vitest for unit tests, React Testing Library for component behavior, and Playwright for end-to-end browser coverage.
 
 ## Why Next.js
 
-- Provides a production-ready TypeScript and React foundation for replacing the current ASP.NET MVC UI.
-- Supports file-based routing, layouts, server rendering, and client interactivity in one framework.
-- Enables colocating page, route, and data-loading concerns while keeping the application approachable for a small shop inventory system.
-- Has a broad ecosystem for authentication, forms, testing, deployment, and observability if the app grows beyond the current feature set.
+Next.js keeps the storefront UI and its initial server-side API in one TypeScript codebase. It provides file-based routing, server rendering, server components, route handlers, and production build tooling without requiring separate frontend and backend projects at the start. This reduces deployment and type-sharing overhead while the replacement application is still small. Its conventions also provide a clear path for incremental feature migration.
 
 ## Why Prisma
 
-- Provides a strongly typed database client generated from the schema, which fits the TypeScript rewrite goal.
-- Makes the current model relationships straightforward to represent: categories have products, products belong to categories, and orders track status and totals.
-- Offers migrations and schema management that are easier to review during a rewrite than ad hoc database changes.
-- Keeps data access explicit and testable without carrying over Entity Framework-specific patterns.
+Prisma provides a declarative schema, repeatable migrations, and a generated type-safe client that fits the TypeScript application. Relations such as products belonging to categories can be represented explicitly, while generated types reduce duplication between database access code and application logic. Prisma also supports PostgreSQL directly and makes local database setup and seed scripts straightforward.
 
 ## Why PostgreSQL
 
-- Provides a durable production database option beyond the current local SQLite setup.
-- Supports relational constraints, transactions, indexes, enums, and reporting queries suitable for inventory, categories, and orders.
-- Works well with Prisma and common Next.js deployment targets.
-- Leaves room for future operational needs such as backups, analytics, concurrency, and larger datasets.
+PostgreSQL is a production-grade relational database suited to the application's structured products, categories, and orders. It supports transactions, constraints, indexes, precise numeric types for money values, and a mature operational ecosystem. Using it as the production target avoids depending on SQLite behavior that can differ in concurrency, typing, and migration scenarios. SQLite may still be used for isolated local experiments, but it is not the production contract.
 
-## What will not be migrated from the old stack
+## What Will Not Be Migrated
 
-- ASP.NET Core MVC controllers, Razor views, and Razor layout files will not be migrated directly; they will be replaced by Next.js routes and React UI.
-- Entity Framework Core `DbContext` and SQLite provider configuration will not be migrated; Prisma and PostgreSQL will replace them.
-- The local SQLite database file approach will not be carried forward as the primary runtime database.
-- Server-side `ViewBag` patterns will not be migrated; typed props, server components, or API responses will replace them.
-- The intentionally inefficient dashboard query pattern will not be preserved; the rewrite should use efficient aggregate and relation queries.
-- C# model classes and enums will not be migrated as source files; they will be translated into TypeScript types and Prisma schema models.
+The rewrite will preserve user-visible business capabilities and data concepts, not the old framework implementation. The following will not be carried into the new application:
+
+- ASP.NET Core MVC controllers, conventional controller/action routing, Razor views, and C# view models.
+- Entity Framework Core configuration, `ShopDbContext`, and the `EnsureCreated()` startup initialization path.
+- The SQLite production configuration and the existing `shop.db` file as an application dependency. Any real data that must survive will use an explicit one-time migration into PostgreSQL rather than reusing the file at runtime.
+- .NET-specific dependency injection, configuration bootstrapping, project files, build artifacts, and hosting middleware.
+- The dashboard's intentionally inefficient per-order database queries and mutation of `CustomerName` to display computed counts. Equivalent dashboard information will be computed explicitly and efficiently.
+- Accidental framework behavior that is not part of the intended product, including broad HTTP-method matching on unannotated actions.
+
+The legacy application will remain available as a behavioral reference until replacement features and data migration are verified, but its implementation will not be embedded in or called by the new runtime.

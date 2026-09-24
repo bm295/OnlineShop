@@ -4,7 +4,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop", "OnlineShop\OnlineShop.csproj", "{2CE4FAFF-3C42-449D-BE9C-485E07F7B67A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Tests", "OnlineShop.Tests\OnlineShop.Tests.csproj", "{531018B4-C5D5-4C03-A0AB-EF992B7F5262}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Tests", "..\OnlineShop.Tests\OnlineShop.Tests.csproj", "{531018B4-C5D5-4C03-A0AB-EF992B7F5262}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
