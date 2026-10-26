@@ -122,21 +122,21 @@ This checklist breaks the rewrite into small, ordered tasks for replacing the cu
 
 ## Phase 6: Add validation schemas
 
-- [ ] Add dependency `zod` to the workspace.
-- [ ] Create `packages/domain/src/product.schema.ts`.
-- [ ] In `packages/domain/src/product.schema.ts`, create `productSchema`.
-- [ ] In `packages/domain/src/product.schema.ts`, create `createProductSchema`.
-- [ ] In `packages/domain/src/product.schema.ts`, require product name to be non-empty.
-- [ ] In `packages/domain/src/product.schema.ts`, require SKU to be non-empty.
-- [ ] In `packages/domain/src/product.schema.ts`, require price to be greater than or equal to zero.
-- [ ] In `packages/domain/src/product.schema.ts`, require stock quantity to be an integer greater than or equal to zero.
-- [ ] Create `packages/domain/src/category.schema.ts`.
-- [ ] In `packages/domain/src/category.schema.ts`, create `categorySchema`.
-- [ ] In `packages/domain/src/category.schema.ts`, create `createCategorySchema`.
-- [ ] Create `packages/domain/src/order.schema.ts`.
-- [ ] In `packages/domain/src/order.schema.ts`, create `orderSchema`.
-- [ ] In `packages/domain/src/order.schema.ts`, create `createOrderSchema`.
-- [ ] Export all schemas from `packages/domain/src/index.ts`.
+- [x] Add dependency `zod` to the workspace.
+- [x] Create `packages/domain/src/product.schema.ts`.
+- [x] In `packages/domain/src/product.schema.ts`, create `productSchema`.
+- [x] In `packages/domain/src/product.schema.ts`, create `createProductSchema`.
+- [x] In `packages/domain/src/product.schema.ts`, require product name to be non-empty.
+- [x] In `packages/domain/src/product.schema.ts`, require SKU to be non-empty.
+- [x] In `packages/domain/src/product.schema.ts`, require price to be greater than or equal to zero.
+- [x] In `packages/domain/src/product.schema.ts`, require stock quantity to be an integer greater than or equal to zero.
+- [x] Create `packages/domain/src/category.schema.ts`.
+- [x] In `packages/domain/src/category.schema.ts`, create `categorySchema`.
+- [x] In `packages/domain/src/category.schema.ts`, create `createCategorySchema`.
+- [x] Create `packages/domain/src/order.schema.ts`.
+- [x] In `packages/domain/src/order.schema.ts`, create `orderSchema`.
+- [x] In `packages/domain/src/order.schema.ts`, create `createOrderSchema`.
+- [x] Export all schemas from `packages/domain/src/index.ts`.
 
 ## Phase 7: Configure database and Prisma
 

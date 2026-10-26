@@ -13,3 +13,6 @@ export type {
   Product,
   UpdateProductInput,
 } from "./product";
+export { categorySchema, createCategorySchema } from "./category.schema";
+export { createOrderSchema, orderSchema } from "./order.schema";
+export { createProductSchema, productSchema } from "./product.schema";
