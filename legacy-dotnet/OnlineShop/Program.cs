@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using OnlineShop.Application;
 using OnlineShop.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ShopDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("ShopDb") ?? "Data Source=shop.db"));
+builder.Services.AddMediatR(configuration =>
+    configuration.RegisterServicesFromAssemblyContaining<ListCategoriesQuery>());
 builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddScoped<ShopDatabaseInitializer>();
 

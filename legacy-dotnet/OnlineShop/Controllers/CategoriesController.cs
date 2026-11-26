@@ -1,27 +1,25 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using OnlineShop.Data;
+using OnlineShop.Application;
 using OnlineShop.Models;
 
 namespace OnlineShop.Controllers;
 
-public class CategoriesController(ShopDbContext db) : Controller
+public class CategoriesController(ISender sender) : Controller
 {
-    public async Task<IActionResult> Index() => View(await db.Categories.OrderBy(c => c.Name).ToListAsync());
+    public async Task<IActionResult> Index(CancellationToken cancellationToken)
+        => View(await sender.Send(new ListCategoriesQuery(), cancellationToken));
 
     [HttpGet]
     public IActionResult Create() => View(new Category());
 
     [HttpPost]
-    public async Task<IActionResult> Create(Category category)
+    public async Task<IActionResult> Create(Category category, CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid)
-        {
             return View(category);
-        }
 
-        db.Categories.Add(category);
-        await db.SaveChangesAsync();
+        await sender.Send(new CreateCategoryCommand(category), cancellationToken);
         return RedirectToAction(nameof(Index));
     }
 }

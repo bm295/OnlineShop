@@ -1,40 +1,39 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using OnlineShop.Data;
+using OnlineShop.Application;
 using OnlineShop.Models;
 
 namespace OnlineShop.Controllers;
 
-public class ProductsController(ShopDbContext db) : Controller
+public class ProductsController(ISender sender) : Controller
 {
-    public async Task<IActionResult> Index()
-        => View(await db.Products.Include(p => p.Category).OrderBy(p => p.Name).ToListAsync());
+    public async Task<IActionResult> Index(CancellationToken cancellationToken)
+        => View(await sender.Send(new ListProductsQuery(), cancellationToken));
 
     [HttpGet]
-    public async Task<IActionResult> Create()
+    public async Task<IActionResult> Create(CancellationToken cancellationToken)
     {
-        await PopulateCategoriesAsync();
+        await PopulateCategoriesAsync(cancellationToken);
         return View(new Product());
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Product product)
+    public async Task<IActionResult> Create(Product product, CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid)
         {
-            await PopulateCategoriesAsync();
+            await PopulateCategoriesAsync(cancellationToken);
             return View(product);
         }
 
-        db.Products.Add(product);
-        await db.SaveChangesAsync();
+        await sender.Send(new CreateProductCommand(product), cancellationToken);
         return RedirectToAction(nameof(Index));
     }
 
-    private async Task PopulateCategoriesAsync()
+    private async Task PopulateCategoriesAsync(CancellationToken cancellationToken)
     {
-        var categories = await db.Categories.OrderBy(c => c.Name).ToListAsync();
+        var categories = await sender.Send(new ListProductCategoriesQuery(), cancellationToken);
         ViewBag.Categories = new SelectList(categories, nameof(Category.Id), nameof(Category.Name));
     }
 }
