@@ -1,30 +1,25 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using OnlineShop.Data;
+using OnlineShop.Application;
 using OnlineShop.Models;
 
 namespace OnlineShop.Controllers;
 
-public class OrdersController(ShopDbContext db) : Controller
+public class OrdersController(ISender sender, TimeProvider clock) : Controller
 {
-    public async Task<IActionResult> Index()
-        => View(await db.Orders.OrderByDescending(o => o.CreatedAtUtc).ToListAsync());
+    public async Task<IActionResult> Index(CancellationToken cancellationToken)
+        => View(await sender.Send(new ListOrdersQuery(), cancellationToken));
 
     [HttpGet]
-    public IActionResult Create() => View(new Order { CreatedAtUtc = DateTime.UtcNow });
+    public IActionResult Create() => View(new Order { CreatedAtUtc = clock.GetUtcNow().UtcDateTime });
 
     [HttpPost]
-    public async Task<IActionResult> Create(Order order)
+    public async Task<IActionResult> Create(Order order, CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid)
-        {
             return View(order);
-        }
 
-        order.CreatedAtUtc = DateTime.UtcNow;
-        db.Orders.Add(order);
-        await db.SaveChangesAsync();
-
+        await sender.Send(new CreateOrderCommand(order), cancellationToken);
         return RedirectToAction(nameof(Index));
     }
 }
